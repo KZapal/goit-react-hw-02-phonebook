@@ -1,0 +1,19 @@
+.contactList {
+  margin-top: 20px;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.item {
+  padding: 10px;
+  background-color: #e0e0e4;
+  margin-bottom: 10px;
+}
+
+.item:focus,
+.item:hover {
+  background-color: #d5d5d5;
+}
