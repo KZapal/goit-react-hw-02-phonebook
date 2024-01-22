@@ -39,7 +39,7 @@ class App extends React.Component {
       contact => contact.name.toLowerCase() === this.state.name.toLowerCase()
     );
     if (contactIn) {
-      alert('This contact already exists in the phone book.');
+      alert('This contact already is in contacts.');
     } else {
       let newContact = {
         id: nanoid(),

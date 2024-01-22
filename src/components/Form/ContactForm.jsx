@@ -22,7 +22,7 @@ class ContactForm extends React.Component {
           name="number"
           value={this.props.number}
           onChange={this.props.onChange}
-          placeholder="Phone number: xxx-xx-xx"
+          placeholder="Phone number: 1234567"
           pattern="[0-9]{7}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
