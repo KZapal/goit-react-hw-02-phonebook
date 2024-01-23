@@ -4,19 +4,6 @@ import css from './ContactList.module.css';
 import PropTypes from 'prop-types';
 
 class ContactList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contacts: this.props.contacts,
-    };
-  }
-
-  delete = id => {
-    this.setState(({ contacts }) => ({
-      contacts: [...contacts.filter(contact => contact.id !== id)],
-    }));
-  };
-
   render() {
     const { contacts } = this.props;
     return (
@@ -25,9 +12,10 @@ class ContactList extends React.Component {
           {contacts.map(({ id, name, number }) => (
             <ContactListItem
               key={id}
+              id={id}
               name={name}
               number={number}
-              onClick={() => this.delete(id)}
+              onClick={() => this.props.onFilter(id)}
             />
           ))}
         </ul>
@@ -37,7 +25,13 @@ class ContactList extends React.Component {
 }
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.string.isRequired),
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ),
 };
 
 export default ContactList;

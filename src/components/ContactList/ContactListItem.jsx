@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ContactListItem = ({ id, name, number, onClick }) => {
   return (
-    <li className={css.item} key={id}>
+    <li className={css.item}>
       <div className={css.itemIn}>
         <span>
           {name}: {number}

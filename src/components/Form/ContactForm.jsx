@@ -13,18 +13,16 @@ class ContactForm extends React.Component {
           value={this.props.name}
           onChange={this.props.onChange}
           placeholder="Name: full name"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
         <input
           className={css.formInput}
-          type="tel"
+          type="number"
           name="number"
           value={this.props.number}
           onChange={this.props.onChange}
-          placeholder="Phone number: 1234567"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          placeholder="Phone number: seven digits"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />

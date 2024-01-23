@@ -33,6 +33,15 @@ class App extends React.Component {
     });
   };
 
+  formatPhoneNumber = number => {
+    const cleaned = ('' + number).replace(/\D/g, '');
+    const match = cleaned.match(/^(\d{3})(\d{2})(\d{2})$/);
+    if (match) {
+      return match[1] + '-' + match[2] + '-' + match[3];
+    }
+    return null;
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     const contactIn = this.state.contacts.find(
@@ -44,7 +53,7 @@ class App extends React.Component {
       let newContact = {
         id: nanoid(),
         name: this.state.name,
-        number: this.state.number,
+        number: this.formatPhoneNumber(this.state.number),
       };
       this.setState({ contacts: [...this.state.contacts, newContact] });
     }
@@ -58,6 +67,13 @@ class App extends React.Component {
     return filteredList;
   };
 
+  onDelete = id => {
+    this.setState(prevState => ({
+      ...prevState,
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
+  };
+
   render() {
     return (
       <div className={css.mainBlock}>
@@ -69,7 +85,7 @@ class App extends React.Component {
         <h2 className={css.header}>Contacts</h2>
 
         <Filter value={this.state.filter} onChange={this.handleChange} />
-        <ContactList contacts={this.filterList()} />
+        <ContactList contacts={this.filterList()} onFilter={this.onDelete} />
       </div>
     );
   }
