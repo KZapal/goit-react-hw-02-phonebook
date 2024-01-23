@@ -1,4 +1,5 @@
 import css from './ContactList.module.css';
+import PropTypes from 'prop-types';
 
 const ContactListItem = ({ id, name, number, onClick }) => {
   return (
@@ -13,6 +14,13 @@ const ContactListItem = ({ id, name, number, onClick }) => {
       </div>
     </li>
   );
+};
+
+ContactListItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ContactListItem;
