@@ -58,12 +58,6 @@ class App extends React.Component {
     return filteredList;
   };
 
-  onDelete = id => {
-    this.setState(({ contacts }) => ({
-      contacts: [...contacts.filter(contact => contact.id !== id)],
-    }));
-  };
-
   render() {
     return (
       <div className={css.mainBlock}>
@@ -71,11 +65,9 @@ class App extends React.Component {
         <ContactForm
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
-          // name={this.state.name}
-          // number={this.state.number}
         />
         <h2 className={css.header}>Contacts</h2>
-        Find contacts by name
+
         <Filter value={this.state.filter} onChange={this.handleChange} />
         <ContactList contacts={this.filterList()} />
       </div>

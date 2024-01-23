@@ -1,9 +1,16 @@
 import css from './ContactList.module.css';
 
-const ContactListItem = ({ id, name, number }) => {
+const ContactListItem = ({ id, name, number, onClick }) => {
   return (
     <li className={css.item} key={id}>
-      {name}: {number}
+      <div className={css.itemIn}>
+        <span>
+          {name}: {number}
+        </span>
+        <button onClick={onClick} className={css.btn}>
+          Delete
+        </button>
+      </div>
     </li>
   );
 };

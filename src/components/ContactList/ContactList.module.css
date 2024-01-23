@@ -17,3 +17,21 @@
 .item:hover {
   background-color: #d5d5d5;
 }
+
+.itemIn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #45a049;
+}
